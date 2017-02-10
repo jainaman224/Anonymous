@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "channels",
-    "realtime"
+    "realtime",
+    'rest_framework'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -70,6 +71,12 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    )
+}
 
 CHANNEL_LAYERS = {
     "default": {
