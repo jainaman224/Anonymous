@@ -24,7 +24,7 @@ def update_user_sentiment(user_id, text):
 def send_sms(text, phone_number):
     p = plivo.RestAPI(os.environ['pilvo_auth_id'], os.environ['pilvo_auth_token'])
     params = {
-        'src': 'VK-FINMOI',
+        'src': 'VK-HACK',
         'dst': '+91' + str(phone_number),
         'text': text
     }
