@@ -1,7 +1,4 @@
 import subprocess
-
-import after_response
-
 from realtime.models import User
 
 
