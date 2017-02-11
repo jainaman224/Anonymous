@@ -14,5 +14,5 @@ def update_user_sentiment(user_id, text):
     user = User.objects.get(pk=user_id)
     data = 'text=' + text
     negative_value, positive_value = execute_command(['curl', '-d', data, 'http://text-processing.com/api/sentiment/'])
-    user.sentiment_score = positive_value
+    user.sentiment_score = str(positive_value)
     user.save()
