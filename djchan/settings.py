@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "channels",
+    "django_cron",
     "realtime",
     'rest_framework'
 )
@@ -85,6 +86,10 @@ CHANNEL_LAYERS = {
         "ROUTING": "realtime.routing.channel_routing",
     },
 }
+
+CRON_CLASSES = [
+    "realtime.cron.MyCronJob",
+]
 
 WSGI_APPLICATION = 'djchan.wsgi.application'
 
