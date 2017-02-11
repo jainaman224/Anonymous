@@ -2,7 +2,7 @@ from channels import Group
 from channels.sessions import channel_session
 from simplejson import dumps
 
-from realtime.models import Session, User
+from realtime.models import Session, User, Message
 
 
 def ws_connect(message):
@@ -13,7 +13,9 @@ def ws_connect(message):
 
 def websocket_receive(message):
     room_id = message['path'].strip('/').split('/')[0]
+    user_id = message['path'].strip('/').split('/')[1]
     text = message.content.get('text')
+    Message.objects.create(user_id=user_id, message=text)
     Group('chat-%s' % room_id).send({'text': text})
 
 

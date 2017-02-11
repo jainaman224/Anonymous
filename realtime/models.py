@@ -47,9 +47,9 @@ class CounsellorRoom(models.Model):
 
 class Message(models.Model):
     user = models.ForeignKey('User')
-    room = models.ForeignKey('Room')
     message = models.TextField()
     sent_on = models.DateTimeField(auto_now_add=True)
+    is_processed = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'message'
