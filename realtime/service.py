@@ -22,7 +22,7 @@ def update_user_sentiment(user_id, text):
 
 
 def send_sms(text, phone_number):
-    p = plivo.RestAPI(os.environ['pilvo_auth_id'], os.environ['constant.pilvo_auth_token'])
+    p = plivo.RestAPI(os.environ['pilvo_auth_id'], os.environ['pilvo_auth_token'])
     params = {
         'src': 'VK-FINMOI',
         'dst': '+91' + str(phone_number),
