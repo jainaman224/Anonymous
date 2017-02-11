@@ -16,7 +16,7 @@ class User(models.Model):
     user_password = models.CharField(max_length=255)
     forum_room_id = models.IntegerField()
     counsellor_room_id = models.IntegerField()
-    sentiment_score = models.CharField(max_length=255)
+    sentiment_score = models.FloatField()
 
     class Meta:
         db_table = 'user'
