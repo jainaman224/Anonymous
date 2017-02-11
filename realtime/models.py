@@ -17,6 +17,7 @@ class User(models.Model):
     forum_room_id = models.IntegerField()
     counsellor_room_id = models.IntegerField()
     sentiment_score = models.FloatField()
+    message_sent = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'user'

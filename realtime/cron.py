@@ -1,18 +1,19 @@
 from django_cron import CronJobBase, Schedule
 
-from models import User
+from models import User, Counsellor
+from realtime.service import send_sms
+
 
 class MyCronJob(CronJobBase):
-    RUN_EVERY_MINS = 120 # every 2 hours
+    RUN_EVERY_MINS = 120  # every 2 hours
 
     schedule = Schedule(run_every_mins=RUN_EVERY_MINS)
     code = 'realtime.my_cron_job'
 
     def do(self):
-        for each in User.objects.all():
+        for each in User.objects.filter(message_sent=False):
+            counsellor = Counsellor.objects.get(pk=1)
             if each.sentiment_score > 0.85:
-                # TODO: trigger psycharistic to consult user and message to police
-                pass
+                send_sms(text='Please check the user : ' + str(each.phone_number), phone_number=counsellor.phone_number)
             elif each.sentiment_score > 0.75:
-                # TODO: trigger suggest to user to consult psycharistic and message to ngo
-                pass
+                send_sms(text='Please consult : ' + str(counsellor.phone_number), phone_number=each.phone_number)
