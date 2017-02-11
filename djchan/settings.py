@@ -88,11 +88,7 @@ CHANNEL_LAYERS = {
     },
 }
 
-'''
-CRON_CLASSES = [
-    "my_app.cron.MyCronJob",
-]
-'''
+
 WSGI_APPLICATION = 'djchan.wsgi.application'
 
 

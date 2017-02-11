@@ -6,4 +6,4 @@ from realtime.models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('user_name', 'email', 'phone_number')
+        fields = ('user_name', 'email', 'phone_number', 'id')

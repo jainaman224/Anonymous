@@ -13,9 +13,10 @@ class User(models.Model):
     email = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
-    password = models.CharField(max_length=255)
+    user_password = models.CharField(max_length=255)
     forum_room_id = models.IntegerField()
     counsellor_room_id = models.IntegerField()
+    sentiment_score = models.DecimalField(decimal_places=4, max_digits=4)
 
     class Meta:
         db_table = 'user'
