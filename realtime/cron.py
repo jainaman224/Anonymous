@@ -17,7 +17,11 @@ class MyCronJob(CronJobBase):
                 send_sms(text='Please check the user : ' + each.user_name +
                               ' with phone number : ' +
                               str(each.phone_number), phone_number=counsellor.phone_number)
+                each.message_sent = True
+                each.save()
             elif each.sentiment_score > 0.75:
                 send_sms(text='Please consult : ' + counsellor.counsellor_name +
                               ' having phone number : ' +
                               str(counsellor.phone_number), phone_number=each.phone_number)
+                each.message_sent = True
+                each.save()
