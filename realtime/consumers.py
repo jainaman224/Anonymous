@@ -17,7 +17,7 @@ def websocket_receive(message):
     user_id = message['path'].strip('/').split('/')[1]
     text = message.content.get('text')
     Group('chat-%s' % room_id).send({'text': text})
-    update_user_sentiment.after_response(user_id=user_id, text=text)
+    update_user_sentiment(user_id=user_id, text=text)
 
 
 def ws_disconnect(message):

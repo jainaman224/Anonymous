@@ -39,8 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     "channels",
     "realtime",
-    'rest_framework',
-    'after_response'
+    'rest_framework'
 )
 
 MIDDLEWARE_CLASSES = (
